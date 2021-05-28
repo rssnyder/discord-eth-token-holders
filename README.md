@@ -1,6 +1,8 @@
 # discord-eth-token-holders
 a discord bot to show you the number of holders for a particular ethereum token
 
+![image](https://user-images.githubusercontent.com/7338312/120041575-19166b80-bfce-11eb-98bb-f0babc829ccd.png)
+
 ## usage
 
 ```

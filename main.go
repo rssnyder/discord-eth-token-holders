@@ -17,6 +17,7 @@ var (
 	header      string
 	token       string
 	address     string
+	chain       string
 )
 
 func init() {
@@ -27,12 +28,13 @@ func init() {
 	flag.StringVar(&header, "header", "", "text for nickname")
 	flag.StringVar(&token, "token", "", "discord bot token")
 	flag.StringVar(&address, "address", "", "address of the token contract")
+	flag.StringVar(&chain, "chain", "ethereum", "chain to use, ethereum or binance-smart-chain")
 
 	flag.Parse()
 }
 
 const (
-	holdersUrl = "https://eth-token-holders.cloud.rileysnyder.org/%s"
+	holdersUrl = "https://eth-token-holders.cloud.rileysnyder.org/%s/%s"
 )
 
 func main() {
@@ -76,7 +78,7 @@ func main() {
 		select {
 		case <-ticker.C:
 
-			data := getHolders(address)
+			data := getHolders(chain, address)
 
 			nickname = fmt.Sprintf("%s%s", header, data)
 
@@ -105,10 +107,10 @@ func main() {
 	}
 }
 
-func getHolders(contract string) string {
+func getHolders(chain, contract string) string {
 	var holders string
 
-	reqURL := fmt.Sprintf(holdersUrl, contract)
+	reqURL := fmt.Sprintf(holdersUrl, chain, contract)
 	req, err := http.NewRequest("GET", reqURL, nil)
 	if err != nil {
 		return holders

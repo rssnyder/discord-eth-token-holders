@@ -1,4 +1,7 @@
 # discord-eth-token-holders
+
+⚠️This project has been merged with [discord stock tickers](https://github.com/rssnyder/discord-stock-ticker).⚠️
+
 a discord bot to show you the number of holders for a particular ethereum or binance-smart-chain token
 
 ![image](https://user-images.githubusercontent.com/7338312/120041575-19166b80-bfce-11eb-98bb-f0babc829ccd.png)
